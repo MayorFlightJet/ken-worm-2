@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Worm.io — Game 2D Paper.io dengan karakter cacing. Kuasai wilayah peta dengan cacing Anda!">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f0c29">
+    <title>🐛 Worm.io — Conquer the Map!</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ═══ Game Canvas ═══ -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- ═══ HUD Overlay ═══ -->
+    <div id="hud" style="display:none">
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <span class="progress-label">Territory</span>
+            <div class="progress-bar-outer">
+                <div class="progress-bar-inner" id="progressBarInner"></div>
+            </div>
+            <span class="progress-text" id="progressText">0.0%</span>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard" id="leaderboard">
+            <div class="leaderboard-title">Ranking</div>
+        </div>
+
+        <!-- Kill Feed -->
+        <div class="kill-feed" id="killFeed"></div>
+
+        <!-- Minimap -->
+        <div class="minimap-container">
+            <canvas id="minimapCanvas"></canvas>
+        </div>
+
+        <!-- Virtual Joystick -->
+        <div class="joystick-zone" id="joystickZone">
+            <div class="joystick-base" id="joystickBase">
+                <div class="joystick-arrows">
+                    <div class="joystick-arrow up"></div>
+                    <div class="joystick-arrow down"></div>
+                    <div class="joystick-arrow left"></div>
+                    <div class="joystick-arrow right"></div>
+                </div>
+                <div class="joystick-thumb" id="joystickThumb"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ═══ Start Screen ═══ -->
+    <div class="screen-overlay" id="startScreen">
+        <div class="worm-emoji">🐛</div>
+        <h1 class="game-title">Worm.io</h1>
+        <p class="game-subtitle">Conquer the Map</p>
+        <button class="btn-play" id="btnPlay">▶ PLAY</button>
+        <div class="controls-hint">
+            📱 Joystick / Swipe to control<br>
+            ⌨️ Arrow Keys / WASD
+        </div>
+    </div>
+
+    <!-- ═══ Game Over Screen ═══ -->
+    <div class="screen-overlay hidden" id="gameOverScreen">
+        <h1 class="gameover-title lose" id="gameoverTitle">💀 Game Over</h1>
+
+        <div class="gameover-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="statTerritory">0%</div>
+                <div class="stat-label">Territory</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statKills">0</div>
+                <div class="stat-label">Kills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statTime">0:00</div>
+                <div class="stat-label">Time</div>
+            </div>
+        </div>
+
+        <button class="btn-play" id="btnRestart">🔄 PLAY AGAIN</button>
+    </div>
+
+    <!-- ═══ Scripts (order matters) ═══ -->
+    <script src="js/constants.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/worm.js"></script>
+    <script src="js/bot.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+
+</body>
+</html>
